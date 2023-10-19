@@ -1,0 +1,23 @@
+
+.carausel {
+  width: 100%;
+  padding: 20px;
+  background: rgba(250, 247, 247, 0.137);
+  border-radius: 15px;
+}
+.title {
+  margin-bottom: 50px;
+  margin-top: 150px;
+  padding: 10px 0;
+  width: 100%;
+  background: #5757576f;
+  h1 {
+    font-family: inter;
+    text-align: center;
+    color: #fff;
+    img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}

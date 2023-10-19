@@ -1,0 +1,21 @@
+.category__wrapper {
+  border-radius: 15px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 4fr);
+  background: #8b8b8b40;
+  @media (max-width: 950px) {
+    grid-template-columns: repeat(2, auto);
+  }
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(1, auto);
+  }
+}
+.title {
+  border-radius: 15px;
+  h2 {
+    text-align: center;
+    font-family: sans-serif;
+    color: #fff;
+  }
+}
