@@ -94,13 +94,13 @@ code {
     left: -100%;
     transform: rotate(-45deg);
     height: 60rem;
-    transition: 0.7s all;
+    transition: .3s all;
   }
 
   &:hover {
     border: 1px solid #ffffff44;
-    box-shadow: 0 7px 50px 10px #000000aa;
-    transform: scale(1.150);
+    box-shadow: 0 7px 50px 10px #000000fa;
+    transform: scale(1.0450);
     filter: brightness(1);
     ::before {
       filter: brightness(1);

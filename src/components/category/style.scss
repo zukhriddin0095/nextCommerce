@@ -1,6 +1,10 @@
+.border {
+  border-bottom: 2px solid #888;
+  padding-bottom: 100px;
+}
+
 .category__wrapper {
   border-radius: 15px;
-
   display: grid;
   grid-template-columns: repeat(3, 4fr);
   background: #8b8b8b40;

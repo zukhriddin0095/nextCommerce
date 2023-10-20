@@ -7,10 +7,10 @@ const SwiperCard = ({ title, image, _id }: ProductType) => {
   return (
     <div className="card">
       <div className="card__img">
-        <Image src={image?.url} alt={title} width={300} height={200} />
+        <Image src={image?.url} alt={title} width={350} height={200} />
       </div>
       <div className="card__title">
-        <Link href={`products/${_id}`}>
+        <Link href={`product/${_id}`}>
           <h5>{title}</h5>
         </Link>
       </div>

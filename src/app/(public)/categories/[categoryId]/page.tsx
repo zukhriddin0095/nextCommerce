@@ -53,7 +53,7 @@ const CategoryPage = ({ params: { categoryId } }: Params) => {
           </div>
           <div className="wrapper__title">
             <h3>{category.name}</h3>
-            <h5>{category.createdAt.split("t"[0])}</h5>
+            <h5>{category.createdAt.split("T")[0]}</h5>
           </div>
         </div>
       </div>

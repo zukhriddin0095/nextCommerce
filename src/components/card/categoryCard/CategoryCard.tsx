@@ -26,7 +26,7 @@ const CategoryCard = ({ name, image, _id }: CategoryType) => {
                 alt="Creator"
               />
             </div>
-            <Link href={`/categories/${_id}`}>
+            <Link href={`/category/${_id}`}>
               <h5>{name}</h5>
             </Link>
           </div>

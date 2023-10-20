@@ -17,18 +17,24 @@ import "./style.scss";
 
 const NewProducts = () => {
   const [products, setProducts] = useState([] as ProductType[]);
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     getLatestProducts();
   }, []);
 
   async function getLatestProducts() {
+    setLoading(true)
     try {
       const { data } = await request.get<ProductType[]>("last-products");
       setProducts(data);
+    setLoading(false);
+
     } catch (error) {
       console.error("Error fetching latest products: ", error);
-    }
+    }finally {
+    setLoading(false)
+  }
   }
 
   return (

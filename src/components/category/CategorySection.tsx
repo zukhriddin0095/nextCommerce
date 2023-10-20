@@ -28,7 +28,7 @@ const CategorySection: React.FC = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container border">
       <div className="title">
         <h2>Maxsulotlar Categoriyasi</h2>
       </div>
