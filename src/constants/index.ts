@@ -1,0 +1,1 @@
+export const ENDPOINT = "https://ap-vodiy-parfum-backend.up.railway.app/";

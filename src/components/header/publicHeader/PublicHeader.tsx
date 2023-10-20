@@ -38,7 +38,9 @@ const PublicHeader = () => {
       <div className="container">
         <nav className="header__navbar">
           <div className="header__navbar__logo">
-            <Image src={logo} alt="logo" />
+            <Link href={`/`}>
+              <Image src={logo} alt="logo" />
+            </Link>
           </div>
           <div className="header__navbar__link">
             <NavLink href="/">Home</NavLink>

@@ -30,7 +30,7 @@
         color: #f7f7f7;
       }
       .active {
-        color: rgba(195, 234, 0, 0.509);
+        color: rgb(195, 234, 0);
       }
 
       &__btn {
@@ -55,13 +55,12 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: #5f5f5f77;
   padding: 10px 0;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   border-bottom: 1px solid #a7a7a7d6;
   z-index: 10;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   transition: all 0.5s;
 }
 
@@ -80,6 +79,7 @@
     border: none;
     background: transparent;
     transition: 0.3s;
+    cursor: pointer;
     span {
       font-size: 25px;
       color: #fff;
@@ -93,7 +93,7 @@
 
 .none__toggle {
   position: absolute;
-  opacity: 0;
+  display: none;
   transform: 0.3s;
 }
 
@@ -103,7 +103,6 @@
   position: absolute;
   left: 0;
   top: 0;
-  opacity: 1;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -117,6 +116,7 @@
     padding: 10px;
     border: none;
     background: transparent;
+    cursor: pointer;
     span {
       font-size: 25px;
       color: #fff;

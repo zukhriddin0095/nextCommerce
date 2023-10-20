@@ -1,4 +1,4 @@
-import MainCategory from "@/components/categories/MainCategory";
+import CategorySection from "@/components/category/CategorySection";
 import NewProducts from "@/components/newproducts/NewProducts";
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
       <NewProducts />
       </div>
       <div className="category">
-        <MainCategory />
+        <CategorySection />
       </div>
     </main>
   )
