@@ -1,0 +1,47 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  padding-bottom: 100px;
+  border-bottom: 2px solid #888;
+  &__title {
+    display: flex;
+    gap: 30px;
+    h3 {
+      font-family: sans-serif;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%; /* 72px */
+      color: #fff;
+    }
+  }
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+  }
+}
+
+.header__search {
+  form {
+    display: flex;
+    align-items: center;
+    input {
+      padding: 10px 20px;
+      background-color: #a1a1a160;
+      outline: none;
+      border-radius: 4px;
+      border: 1px solid var(--grayscale-light, #bfbfbf);
+    }
+    button {
+      padding: 1px;
+      background-color: #a1a1a160;
+      overflow: hidden;
+      border-radius: 4px;
+      border: 1px solid var(--grayscale-light, #bfbfbf);
+      font-size: 25px;
+    }
+  }
+}

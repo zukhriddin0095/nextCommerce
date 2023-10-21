@@ -44,7 +44,7 @@ const PublicHeader = () => {
           </div>
           <div className="header__navbar__link">
             <NavLink href="/">Home</NavLink>
-            <NavLink href="/products">Products</NavLink>
+            <NavLink href="/product">Products</NavLink>
             <NavLink href="/about">About</NavLink>
             <NavLink href="/contact">Contact</NavLink>
             <div className="header__navbar__link__btn">

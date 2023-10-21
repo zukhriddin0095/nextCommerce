@@ -3,13 +3,13 @@ import NewProducts from "@/components/newproducts/NewProducts";
 
 export default function Home() {
   return (
-    <main >
+    <main>
       <div className="newProducts">
-      <NewProducts />
+        <NewProducts />
       </div>
       <div className="category">
         <CategorySection />
       </div>
     </main>
-  )
+  );
 }

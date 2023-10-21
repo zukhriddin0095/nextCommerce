@@ -1,17 +1,20 @@
-
 "use client";
-
 
 import React, { Fragment, useEffect, useState } from "react";
 import Image from "next/image";
 import request from "@/server";
 import Params from "@/types/dynamic-params";
 import CategoryType from "@/types/category";
-
+import ProductType from "@/types/product";
 
 import "./style.scss";
+import SwiperCard from "@/components/card/products/SwiperCard";
+import ProductsCard from "@/components/card/productsCard/ProductsCard";
+
 const CategoryPage = ({ params: { categoryId } }: Params) => {
   const [category, setCategory] = useState<CategoryType | null>(null);
+  const [products, setProducts] = useState<ProductType[] | null>(null);
+  const [total, setTotal] = useState<number | null>(null);
 
   useEffect(() => {
     async function getCategory() {
@@ -24,7 +27,17 @@ const CategoryPage = ({ params: { categoryId } }: Params) => {
         console.log(error);
       }
     }
-
+    async function getcategories() {
+      const {
+        data: { total, products },
+      } = await request.get<{ total: number; products: ProductType[] }>(
+        `product`,
+        { params: { category: categoryId } }
+      );
+      setProducts(products);
+      setTotal(total)
+    }
+    getcategories();
     getCategory();
   }, [categoryId]);
 
@@ -55,6 +68,14 @@ const CategoryPage = ({ params: { categoryId } }: Params) => {
             <h3>{category.name}</h3>
             <h5>{category.createdAt.split("T")[0]}</h5>
           </div>
+        </div>
+        <div className="product__title">
+          <h3>Product Total: ({total})</h3>
+        </div>
+        <div className="cards">
+          {products?.map((product) => (
+            <ProductsCard  key={product._id} {...product} />
+          ))}
         </div>
       </div>
     </Fragment>
