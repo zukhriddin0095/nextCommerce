@@ -10,6 +10,7 @@ import ProductType from "@/types/product";
 import "./style.scss";
 import SwiperCard from "@/components/card/products/SwiperCard";
 import ProductsCard from "@/components/card/productsCard/ProductsCard";
+import Loading from "@/app/loading";
 
 const CategoryPage = ({ params: { categoryId } }: Params) => {
   const [category, setCategory] = useState<CategoryType | null>(null);
@@ -35,7 +36,8 @@ const CategoryPage = ({ params: { categoryId } }: Params) => {
         { params: { category: categoryId } }
       );
       setProducts(products);
-      setTotal(total)
+      setTotal(total);
+
     }
     getcategories();
     getCategory();
@@ -43,15 +45,13 @@ const CategoryPage = ({ params: { categoryId } }: Params) => {
 
   if (!category) {
     return (
-      <div>
-        <h1>loading / / ? </h1>
-      </div>
+      <Loading /> 
     );
   }
 
   return (
     <Fragment>
-      <div className="container">
+       <div className="container">
         <div className="wrapper">
           <div className="wrapper__img">
             <Image
@@ -74,7 +74,7 @@ const CategoryPage = ({ params: { categoryId } }: Params) => {
         </div>
         <div className="cards">
           {products?.map((product) => (
-            <ProductsCard  key={product._id} {...product} />
+            <ProductsCard key={product._id} {...product} />
           ))}
         </div>
       </div>

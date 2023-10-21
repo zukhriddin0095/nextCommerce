@@ -21,10 +21,10 @@ const CategoryCard = ({ name, image, _id }: CategoryType) => {
           
           <div className="creator">
             <div className="wrapper">
-              {/* <img
+              <img
                 src="https://images.unsplash.com/photo-1620121692029-d088224ddc74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
                 alt="Creator"
-              /> */}
+              />
             </div>
             <Link href={`/category/${_id}`}>
               <h5>{name}</h5>

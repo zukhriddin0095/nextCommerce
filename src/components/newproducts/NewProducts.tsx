@@ -14,6 +14,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import "./style.scss";
+import Loading from "@/app/loading";
 
 const NewProducts = () => {
   const [products, setProducts] = useState([] as ProductType[]);
@@ -39,7 +40,7 @@ const NewProducts = () => {
 
   return (
     <Fragment>
-      <div className="container row">
+      {loading ? <Loading /> :<div className="container row">
         <div className="title">
           <h1>
             <Image src={newproduct} alt="newproducts" /> Yangi Maxsulotlar
@@ -89,7 +90,7 @@ const NewProducts = () => {
             ))}
           </Swiper>
         </div>
-      </div>
+      </div>}
     </Fragment>
   );
 };

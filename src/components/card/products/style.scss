@@ -1,12 +1,13 @@
 .card {
   filter: brightness(0.6);
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
   &:hover {
     transform: scale(1.015);
-  filter: brightness(1);
+    filter: brightness(1);
   }
   &__img {
+    width: 100%;
     img {
       max-width: 350px;
       height: 250px;
@@ -15,8 +16,8 @@
   }
   &__title {
     position: absolute;
-    left: 10%;
-    bottom: 5%;
+    left: 15%;
+    bottom: 15px;
     h5 {
       padding: 5px;
       border-radius: 5px;

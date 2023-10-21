@@ -1,7 +1,12 @@
 import React from "react";
 
+import "./loading.scss"
 const Loading = () => {
-  return <div className="text-white">Loading . . .</div>;
+  return (
+    <div className="Loading">
+      <span className="loader"></span>
+    </div>
+  );
 };
 
 export default Loading;
