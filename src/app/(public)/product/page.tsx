@@ -5,10 +5,12 @@ import request from "@/server";
 import ProductsCard from "@/components/card/productsCard/ProductsCard";
 
 import "./style.scss";
+import Loading from "@/app/loading";
 const ProductsPage = () => {
   const [Allproduct, setAllProduct] = useState<ProductType[] | null>(null);
   const [total, setTotal] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function getAllproducts() {
@@ -26,16 +28,22 @@ const ProductsPage = () => {
   }, []);
 
   async function handleSearch(e: React.MouseEvent) {
-    e.preventDefault()
+    e.preventDefault();
+    setLoading(true);
     try {
-     const {
-       data: { total, products },
-     } = await request.get(`product?search=${searchQuery}`);
-     setAllProduct(products);
-     setTotal(total)
+      const {
+        data: { total, products },
+      } = await request.get(`product?search=${searchQuery}`);
+      setAllProduct(products);
+      setTotal(total);
+      setLoading(false);
     } catch (error) {
-      
+      console.log(error);
     }
+  }
+
+  if (!Allproduct) {
+    return <Loading />;
   }
 
   return (
@@ -43,16 +51,22 @@ const ProductsPage = () => {
       <div className="container">
         <div className="wrapper">
           <div className="header__search">
-            <form>
-              <input
-                onChange={(e) => setSearchQuery(e.target.value)}
-                type="text"
-                placeholder="Search . . ."
-              />
-              <button onClick={handleSearch} type="submit">
-                🔍
-              </button>
-            </form>
+            {loading ? (
+              <Loading />
+            ) : (
+              <form>
+                {" "}
+                
+                <input
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  type="text"
+                  placeholder="Search . . ."
+                />{" "}
+                <button onClick={handleSearch} type="submit">
+                  🔍
+                </button>{" "}
+              </form>
+            )}
           </div>
           <div className="wrapper__title">
             <h3>All Product</h3>
