@@ -1,7 +1,12 @@
-.wrapper {
+.wrapper__category {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
   padding: 100px 0;
   border-bottom: 2px solid #888;
-  .wrapper__img {
+  &__img {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,7 +25,7 @@
       width: 100%;
     }
   }
-  .wrapper__title {
+  .wrapper__category__title {
     padding: 40px;
     width: 50%;
     height: 250px;

@@ -17,12 +17,12 @@ const PublicFooter = () => {
   return (
     <Fragment>
       <div className="container">
-        <div className="wrapper">
-          <div className="wrapper__logo">
+        <div className="wrapper__footer">
+          <div className="wrapper__footer__logo">
             <Image src={logo} alt="logo" />
             <Image className="logof" src={logof} alt="logo" />
           </div>
-          <div className="wrapper__contact">
+          <div className="wrapper__footer__contact">
             <h5>Позвоните нам</h5>
             <Link href="">+998886456868</Link>
             <Link href="">+998886456868</Link>
@@ -31,7 +31,7 @@ const PublicFooter = () => {
             <h5>E-mail</h5>
             <Link href="mail:to">Nurmatovzukhriddin4@gmail.com</Link>
           </div>
-          <div className="wrapper__social">
+          <div className="wrapper__footer__social">
             <Link href="https://github.com/zukhriddin0095">
               <GithubOutlined />
             </Link>

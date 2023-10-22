@@ -15,12 +15,12 @@ const ProductsCard = ({
 }: ProductType) => {
   return (
     <Fragment>
-      <div className="card">
-        <div className="card__img">
+      <div className="card__products">
+        <div className="card__products__img">
           <Image src={image?.url} alt={title} width={350} height={200} />
         </div>
-        <div className="card__title">
-          <div className="card__title__desc">
+        <div className="card__products__title">
+          <div className="card__products__title__desc">
             <p>Narhi: {price} sum</p>
             <p>Qancha borligi: {quantity} dona</p>
           </div>
@@ -29,7 +29,7 @@ const ProductsCard = ({
           </Link>
           <h5>{description}</h5>
         </div>
-        <div className="card__btn">
+        <div className="card__products__btn">
           <button>В корзину</button>
         </div>
       </div>

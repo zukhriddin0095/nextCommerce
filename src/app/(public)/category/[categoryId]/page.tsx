@@ -51,9 +51,9 @@ const CategoryPage = ({ params: { categoryId } }: Params) => {
 
   return (
     <Fragment>
-       <div className="container">
-        <div className="wrapper">
-          <div className="wrapper__img">
+      <div className="container">
+        <div className="wrapper__category">
+          <div className="wrapper__category__img">
             <Image
               src={category.image?.url}
               alt={category.name}
@@ -64,7 +64,7 @@ const CategoryPage = ({ params: { categoryId } }: Params) => {
               objectFit="contain"
             />
           </div>
-          <div className="wrapper__title">
+          <div className="wrapper__category__title">
             <h3>{category.name}</h3>
             <h5>{category.createdAt.split("T")[0]}</h5>
           </div>

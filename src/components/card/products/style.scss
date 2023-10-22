@@ -1,4 +1,4 @@
-.card {
+.card__latest {
   filter: brightness(0.6);
   cursor: pointer;
   transition: 0.3s;
@@ -7,23 +7,30 @@
     filter: brightness(1);
   }
   &__img {
-    width: 100%;
+    // width: 100%;
     img {
-      max-width: 350px;
-      height: 250px;
-      border-radius: 50px;
+    //   max-width: 350px;
+    //   height: 250px;
+      border-radius: 10px;
     }
   }
   &__title {
-    position: absolute;
-    left: 15%;
-    bottom: 15px;
+    width: 95%;
+    cursor: pointer;
+    transition: .3s;
+    &:hover {
+      transform: scale(1.1);
+      h5 {
+        color: #fff;
+      }
+    }
     h5 {
       padding: 5px;
       border-radius: 5px;
       color: #000000;
       background: #62626269;
       font-size: 20px;
+      transition: .3s;
     }
   }
 }

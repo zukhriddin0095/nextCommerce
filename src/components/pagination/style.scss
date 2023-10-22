@@ -1,0 +1,15 @@
+.pagination {
+  margin-top: 50px;
+ display: flex;
+ gap: 10px;
+ li {
+  padding: 5px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+ }
+ .active {
+  background: #9898986c;
+ }
+}

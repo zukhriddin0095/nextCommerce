@@ -1,11 +1,12 @@
+"use client";
 
-
-
-import "./style.scss"
+import "./style.scss";
 const CategoriesPage = () => {
   return (
-    <div>Categories</div>
-  )
-}
+    <div>
+      <h1>Categry Page</h1>
+    </div>
+  );
+};
 
-export default CategoriesPage
+export default CategoriesPage;
