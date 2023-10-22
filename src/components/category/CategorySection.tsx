@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import CategoryCard from "../card/categoryCard/CategoryCard";
 import CategoryType from "@/types/category";
-import "./style.scss";
 import request from "@/server";
+import icons from "@/assets/icon-category.png"
 
+import "./style.scss";
+import Image from "next/image";
 const CategorySection: React.FC = () => {
   const [categories, setCategories] = useState<CategoryType[]>([]);
 
@@ -30,7 +32,7 @@ const CategorySection: React.FC = () => {
   return (
     <div className="container border">
       <div className="title">
-        <h2>Maxsulotlar Categoriyasi</h2>
+        <h2> <Image src={icons} alt="icons" /> Maxsulotlar Categoriyasi</h2>
       </div>
       <div className="category__wrapper">
         {categories.map((category) => (

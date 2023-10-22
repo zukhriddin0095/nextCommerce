@@ -35,3 +35,31 @@ input {
   margin-left: auto;
 }
 
+.ant-layout  {
+  height: 100vh;
+}
+
+.ant-layout-content {
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+  background: #d7d7d7;
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 30px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.newProducts {
+  padding-bottom: 50px;
+  background: #a9a9a930;
+  border-radius: 20px;
+}
