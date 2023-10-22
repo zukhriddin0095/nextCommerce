@@ -5,7 +5,9 @@
   padding-bottom: 100px;
   border-bottom: 2px solid #888;
   &__title {
+    margin: 15px 0;
     display: flex;
+    justify-content: center;
     gap: 30px;
     h3 {
       font-family: sans-serif;
@@ -44,6 +46,7 @@
       border-radius: 4px;
       border: 1px solid var(--grayscale-light, #bfbfbf);
       font-size: 25px;
+      cursor: pointer;
     }
   }
 }

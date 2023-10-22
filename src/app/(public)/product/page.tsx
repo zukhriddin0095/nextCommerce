@@ -122,6 +122,7 @@ const ProductsPage = () => {
   }, [currentPage]);
 
   async function handleSearch(e: React.MouseEvent) {
+    e.preventDefault()
     setLoading(true);
     try {
       const {
@@ -149,9 +150,6 @@ const ProductsPage = () => {
       <div className="container">
         <div className="wrapper__products">
           <div className="header__search">
-            {loading ? (
-              <Loading />
-            ) : (
               <form>
                 <input
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -162,7 +160,6 @@ const ProductsPage = () => {
                   🔍
                 </button>
               </form>
-            )}
           </div>
           <div className="wrapper__products__title">
             <h3>All Product</h3>
