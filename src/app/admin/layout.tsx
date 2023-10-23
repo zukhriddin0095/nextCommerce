@@ -1,5 +1,5 @@
 "use client";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import childrenType from "@/types/childrenType";
 import {
   MenuFoldOutlined,
@@ -11,11 +11,31 @@ import {
   LogoutOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu, Button, theme } from "antd";
-import { usePathname } from "next/navigation";
+import { redirect, usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import { useAppSelector } from "@/redux/hooks";
+import ROLES from "../../../roles";
+import { deleteCookie } from "cookies-next";
+import { setIsAuthenticated } from "@/redux/slice/authSlice";
+import { ECOMMERCE_ROLE, ECOMMERCE_TOKEN } from "@/constants";
 
 const { Header, Sider, Content } = Layout;
 const AdminLayout = ({ children }: childrenType) => {
+  const { isAuthenticated, role } = useAppSelector((state) => state.auth);
+const router = useRouter()
+  useEffect(() => {
+    if (!isAuthenticated || ROLES.ADMIN !== role) {
+      redirect("/login");
+    }
+  }, [isAuthenticated, role]);
+
+  function logout() {
+    setIsAuthenticated(false);
+    deleteCookie(ECOMMERCE_TOKEN);
+    deleteCookie(ECOMMERCE_ROLE);
+    router.push("/login");
+  }
+
   const [collapsed, setCollapsed] = useState(false);
   const pathName = usePathname();
 
@@ -55,7 +75,7 @@ const AdminLayout = ({ children }: childrenType) => {
               {
                 key: "Logaut",
                 icon: <LogoutOutlined />,
-                label: <button>Logout</button>,
+                label: <button onClick={logout}>Logout</button>,
               },
             ]}
           />

@@ -1,0 +1,63 @@
+.row__login {
+  padding-top: 150px;
+  padding-bottom: 100px;
+  border-bottom: 2px solid #888;
+  form {
+    display: grid;
+    place-items: center;
+    gap: 25px;
+  }
+  &__username {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+     @media (max-width: 500px) {
+      width: 100%;
+    }
+    label {
+      padding-left: 15px;
+      color: white;
+    }
+    input {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #888;
+      background-color: #a7a7a723;
+      outline: none;
+      border-radius: 15px;
+      color: #fff;
+    }
+  }
+  &__password {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @media (max-width: 500px) {
+      width: 100%;
+    }
+    label {
+      padding-left: 15px;
+      color: white;
+    }
+    input {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #888;
+      background-color: #a7a7a723;
+      outline: none;
+      border-radius: 15px;
+      color: #fff;
+     
+    }
+  }
+  button {
+    width: 150px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    
+  }
+}

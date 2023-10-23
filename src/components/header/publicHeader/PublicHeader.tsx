@@ -47,6 +47,7 @@ const PublicHeader = () => {
             <NavLink href="/product">Products</NavLink>
             <NavLink href="/about">About</NavLink>
             <NavLink href="/contact">Contact</NavLink>
+            <NavLink href="/login">Login</NavLink>
             <div className="header__navbar__link__btn">
               <button>
                 <Image src={shopping} alt="shopping" />

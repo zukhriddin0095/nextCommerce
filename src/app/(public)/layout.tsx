@@ -5,11 +5,13 @@ import PublicFooter from "@/components/footer/publicFooter/PublicFooter";
 
 
 const PublicLayout = ({ children }: childrenType) => {
-  return <Fragment>
-    <PublicHeader />
-    {children}
-    <PublicFooter />
-    </Fragment>;
+  return (
+    <Fragment>
+      <PublicHeader />
+      <main>{children}</main>
+      <PublicFooter />
+    </Fragment>
+  );
 };
 
 export default PublicLayout;

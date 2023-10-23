@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 import "../../global.css"
 import childrenType from "@/types/childrenType";
+import StoreProvider from "@/redux/store";
 
 export const metadata: Metadata = {
   title: "E-commerce Project",
@@ -14,7 +15,11 @@ export default function RootLayout({
 }: childrenType) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <StoreProvider>
+          {children}
+        </StoreProvider>
+      </body>
     </html>
   );
 }
