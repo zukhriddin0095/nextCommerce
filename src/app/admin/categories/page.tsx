@@ -26,11 +26,11 @@ const CategoriesAdmin = () => {
       },
       {
         title: "Image",
-        dataIndex: "photo",
-        key: "photo",
-        render: (photo) => {
-          console.log(photo);
-          return <Image src={photo.url} alt="category.name" height={50} width={50}/>;
+        dataIndex: "image",
+        key: "image",
+        render: (image) => {
+          console.log(image);
+          return <Image src={image?.url} alt="category.name" height={50} width={50}/>;
         },
       },
       {
@@ -84,7 +84,7 @@ const CategoriesAdmin = () => {
           dataSource={category as readonly CategoryType[]}
           title={() => (
             <div className="outlet">
-              <h1>Users ({category?.length})</h1>
+              <h1>Categories ({category?.length})</h1>
               <Input style={{ width: "50%" }} placeholder="Search . . ." />
               <button onClick={openModal}>
                 <AppstoreAddOutlined />

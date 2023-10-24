@@ -22,6 +22,7 @@ import ProductType from "@/types/product";
 import { ColumnsType } from "antd/es/table";
 import request from "@/server";
 import CategoryType from "@/types/category";
+import Image from "next/image";
 
 const ProductsAdmin = () => {
   const { Option } = Select;
@@ -59,6 +60,18 @@ const ProductsAdmin = () => {
       title: "Category",
       dataIndex: "category",
       key: "category",
+      
+    },
+    {
+      title: "Image",
+      dataIndex: "image",
+      key: "image",
+      render: (image) => {
+        console.log(image);
+        return (
+          <Image src={image?.url} alt="category.name" height={50} width={50} />
+        );
+      },
     },
     {
       title: "Action",
@@ -150,7 +163,7 @@ const ProductsAdmin = () => {
         dataSource={products as readonly ProductType[]}
         title={() => (
           <div className="outlet">
-            <h1>Users ({total})</h1>
+            <h1>Products ({total})</h1>
             <Input style={{ width: "50%" }} placeholder="Search . . ." />
             <button onClick={openModal}>
               <AppstoreAddOutlined />
