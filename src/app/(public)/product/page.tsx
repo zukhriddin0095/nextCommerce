@@ -119,7 +119,7 @@ const ProductsPage = () => {
       }
     }
     getAllproducts();
-  }, [currentPage]);
+  }, []);
 
   async function handleSearch(e: React.MouseEvent) {
     e.preventDefault()

@@ -35,14 +35,25 @@
 
       &__btn {
         button {
+          position: relative;
           padding: 5px 10px;
           border: none;
           background: rgb(250, 247, 247);
           border-radius: 5px;
+          overflow: hidden;
           cursor: pointer;
           img {
             width: 25px;
             height: 25px;
+          }
+          .total {
+            padding: 3px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: #fff;
+            background: red;
+            border-radius: 50%;
           }
         }
       }

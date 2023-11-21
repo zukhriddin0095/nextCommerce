@@ -11,11 +11,22 @@ import Link from "next/link";
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 
 import "./style.scss";
+import { useRouter } from "next/navigation";
+import ProductType from "@/types/product";
 const PublicHeader = () => {
   const [header, setHeader] = useState(false);
   const [toggle, setToggle] = useState(false);
+  const router = useRouter();
+  const [products, setProducts] = useState<ProductType[]>([]);
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedData = localStorage.getItem("cards");
+      if (storedData) {
+        const parsedData = JSON.parse(storedData);
+        setProducts(parsedData);
+      }
+    }
     function handleScroll() {
       if (window.scrollY >= 80) {
         setHeader(true);
@@ -31,6 +42,10 @@ const PublicHeader = () => {
   }
   function handleClose() {
     setToggle(false);
+  }
+
+  function handeNavigion() {
+    router.push("/basket");
   }
 
   return (
@@ -49,8 +64,9 @@ const PublicHeader = () => {
             <NavLink href="/contact">Contact</NavLink>
             <NavLink href="/login">Login</NavLink>
             <div className="header__navbar__link__btn">
-              <button>
+              <button onClick={handeNavigion}>
                 <Image src={shopping} alt="shopping" />
+                <h3 className="total">{products?.length}</h3>
               </button>
             </div>
           </div>

@@ -9,15 +9,15 @@
   &__img {
     // width: 100%;
     img {
-    //   max-width: 350px;
-    //   height: 250px;
+      //   max-width: 350px;
+      //   height: 250px;
       border-radius: 10px;
     }
   }
   &__title {
     width: 95%;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
     &:hover {
       transform: scale(1.1);
       h5 {
@@ -30,7 +30,21 @@
       color: #000000;
       background: #fafafa82;
       font-size: 20px;
-      transition: .3s;
+      transition: 0.3s;
+    }
+    a {
+      width: 95%;
+      display: flex;
+      justify-content: space-between;
     }
   }
+}
+
+#plus {
+  padding: 3px 5px;
+  font-size: 25px;
+  background: #fafafa82;
+  cursor: pointer;
+  border: none;
+  border-radius: 10pxww,a,szk;
 }

@@ -1,0 +1,141 @@
+.wrapper__wopping__card {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+.shopping__box {
+  margin-top: 100px;
+  padding-bottom: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+  border-bottom: 2px solid #888;
+}
+
+.shoppingCard {
+  position: relative;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  flex-shrink: 0;
+  background: #b1b1b15e;
+  border-radius: 15px;
+  box-shadow: 0px 1px 4px 0px rgba(253, 253, 253, 0.25);
+  &__img {
+    width: 80px;
+    height: 80px;
+    img {
+      width: 100%;
+    }
+  }
+  &__title {
+    h3 {
+      color: #fdfdfd;
+      font-family: Poppins;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    h5 {
+      color: #ffffff;
+      font-family: Nunito;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+  &__quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    button {
+      padding: 5px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: transparent;
+      font-size: 25px;
+      color: #ffffff;
+      transition: 0.5s;
+      &:hover {
+        color: #000000;
+        border: 1px solid #000000;
+        border-radius: 20px;
+        background: #fdfdfddf;
+      }
+      &:active {
+        transform: scale(0.3);
+      }
+    }
+    h3 {
+      color: #f9f9f9;
+      font-family: Poppins;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+  &__price {
+    h3 {
+      color: #ffffff;
+      text-align: right;
+      font-family: Poppins;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+}
+
+.bside__shopping {
+  padding: 30px;
+  width: 30%;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #5659bb7a;
+  box-shadow: 0px 1px 4px 0px rgba(253, 253, 253, 0.25);
+  &__Subtotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h3 {
+      color: #fefcfc;
+      font-family: Poppins;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+  &__Shipping {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  h3 {
+    color: #fefcfc;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+
+.deleteProduct {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  border: none;
+  background: transparent;
+  color: #FFF;
+  cursor: pointer;
+}

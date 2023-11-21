@@ -13,6 +13,7 @@ interface ProductType {
   category: CategoryType;
   createdAt: string;
   updatedAt: string;
+  soni: number;
 }
 
 export default ProductType;

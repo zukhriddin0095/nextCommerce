@@ -47,9 +47,6 @@ const LoginPage = () => {
     }
   };
 
-  useEffect(() => {
-    // No need to call onFinish here, it's not needed in the effect
-  }, []); // Empty dependency array since it doesn't depend on anything
 
   return (
     <Fragment>

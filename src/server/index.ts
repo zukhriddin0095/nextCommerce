@@ -13,22 +13,6 @@ const request = axios.create({
   },
 });
 
-request.interceptors.response.use(
-  (response) => {
-    if (response.data && response.data.accesstoken) {
-      message.success(
-        `success | Hush kelibsiz ${response.data.user.firstName}`
-      );
-    }
-    return response;
-  },
-  (err) => {
-    if (err.response && err.response.data) {
-      message.error(err.response.data.msg);
-    }
-    return Promise.reject(err);
-  }
-);
 
 
 export default request;

@@ -1,6 +1,15 @@
 "use client";
 
-import { Button, Form, Input, Modal, Space, Table, Upload, message } from "antd";
+import {
+  Button,
+  Form,
+  Input,
+  Modal,
+  Space,
+  Table,
+  Upload,
+  message,
+} from "antd";
 import { useState, useEffect, Fragment } from "react";
 import {
   EditFilled,
@@ -13,55 +22,56 @@ import CategoryType from "@/types/category";
 import request from "@/server";
 import Image from "next/image";
 
-
 const CategoriesAdmin = () => {
   const [category, setCategory] = useState<CategoryType[] | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [loading, setLoading] = useState(false)
-    const columns: ColumnsType<CategoryType> = [
-      {
-        title: "Name",
-        dataIndex: "name",
-        key: "name",
+  const [loading, setLoading] = useState(false);
+  const columns: ColumnsType<CategoryType> = [
+    {
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
+    },
+    {
+      title: "Image",
+      dataIndex: "image",
+      key: "image",
+      render: (image) => {
+        console.log(image);
+        return (
+          <Image src={image?.url} alt="category.name" height={50} width={50} />
+        );
       },
-      {
-        title: "Image",
-        dataIndex: "image",
-        key: "image",
-        render: (image) => {
-          console.log(image);
-          return <Image src={image?.url} alt="category.name" height={50} width={50}/>;
-        },
-      },
-      {
-        title: "Action",
-        key: "action",
-        render: (_, record) => (
-          <Space size="middle">
-            <button className="edit-btn">
-              <EditFilled />
-            </button>
-            <button className="delete-btn">
-              <DeleteFilled />
-            </button>
-          </Space>
-        ),
-      },
-    ];
+    },
+    {
+      title: "Action",
+      key: "action",
+      render: (_, record) => (
+        <Space size="middle">
+          <button className="edit-btn">
+            <EditFilled />
+          </button>
+          <button className="delete-btn">
+            <DeleteFilled />
+          </button>
+        </Space>
+      ),
+    },
+  ];
 
-
-
-  useEffect(() => {getCategory();}, []);
+  useEffect(() => {
+    getCategory();
+  }, []);
 
   async function getCategory() {
-    setLoading(true)
+    setLoading(true);
     try {
       const { data } = await request.get("category");
       setCategory(data);
     } catch (error) {
       message.error("serverda hatolik");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
 
@@ -72,12 +82,11 @@ const CategoriesAdmin = () => {
     setIsModalOpen(false);
   }
 
-
   return (
     <Fragment>
       <Fragment>
         <Table
-        loading={loading}
+          loading={loading}
           scroll={{ x: 500 }}
           bordered
           columns={columns}

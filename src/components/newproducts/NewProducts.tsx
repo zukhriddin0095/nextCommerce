@@ -21,21 +21,20 @@ const NewProducts = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    async function getLatestProducts() {
+      setLoading(true);
+      try {
+        const { data } = await request.get<ProductType[]>("last-products");
+        setProducts(data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching latest products: ", error);
+      } finally {
+        setLoading(false);
+      }
+    }
     getLatestProducts();
   }, []);
-
-  async function getLatestProducts() {
-    setLoading(true);
-    try {
-      const { data } = await request.get<ProductType[]>("last-products");
-      setProducts(data);
-      setLoading(false);
-    } catch (error) {
-      console.error("Error fetching latest products: ", error);
-    } finally {
-      setLoading(false);
-    }
-  }
 
   return (
     <Fragment>
@@ -60,8 +59,7 @@ const NewProducts = () => {
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
               }}
-              onSlideChange={() => console.log("slide change")}
-              onSwiper={(swiper) => console.log(swiper)}
+              
               breakpoints={{
                 350: {
                   width: 450,

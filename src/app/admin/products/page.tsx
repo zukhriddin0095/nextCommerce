@@ -10,7 +10,6 @@ import {
   Space,
   Table,
   Upload,
-  message,
 } from "antd";
 import {
   EditFilled,
@@ -24,6 +23,7 @@ import request from "@/server";
 import CategoryType from "@/types/category";
 import Image from "next/image";
 
+import "./style.scss";
 const ProductsAdmin = () => {
   const { Option } = Select;
   const [form] = Form.useForm();
@@ -60,14 +60,15 @@ const ProductsAdmin = () => {
       title: "Category",
       dataIndex: "category",
       key: "category",
-      
+      render: (category) => {
+        return category?.name;
+      },
     },
     {
       title: "Image",
       dataIndex: "image",
       key: "image",
       render: (image) => {
-        console.log(image);
         return (
           <Image src={image?.url} alt="category.name" height={50} width={50} />
         );
@@ -102,7 +103,6 @@ const ProductsAdmin = () => {
       } = await request.get(`product?page=${page}`);
       setProducts(products);
       setTotal(total);
-      console.log(products);
     } finally {
       setLoading(false);
     }
@@ -118,23 +118,22 @@ const ProductsAdmin = () => {
     }
   }
 
-  // async function uploadImage(e: ) {
-  //   try {
-  //     let form = new FormData();
-  //     form.append("file", e.file.originFileObj);
-  //     console.log(form);
-  //     let { data } = await request.post("upload", form);
-  //     setPhoto(data);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
+  async function uploadImage(e: any) {
+    try {
+      let form = new FormData();
+      form.append("file", e.file.originFileObj);
+      let { data } = await request.post("upload", form);
+      setPhoto(data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   async function handleOk() {
     setLoading(true);
     try {
       let values = await form.validateFields();
-      let User = { ...values, photo };
+      let User = { ...values, image: photo };
       console.log(User);
       await request.post("product", User);
       getProducts();
@@ -215,23 +214,25 @@ const ProductsAdmin = () => {
             <Input />
           </Form.Item>
           <Form.Item
-            name="select"
-            label="Select"
+            label="Category"
+            name="category"
             hasFeedback
             rules={[{ required: true, message: "Please select your country!" }]}
           >
-            <Select placeholder="Please select a category">
+            <Select
+              placeholder="Please select a category"
+              onChange={(value) => form.setFieldsValue({ category: value })}
+            >
               {categories?.map((category) => (
-                <Option key={category._id} value={category.name}>
+                <Option key={category._id} value={category._id}>
                   {category.name}
                 </Option>
               ))}
             </Select>
           </Form.Item>
-
-          {/* <Upload onChange={uploadImage} listType="picture" maxCount={1}>
+          <Upload onChange={uploadImage} listType="picture" maxCount={1}>
             <Button icon={<UploadOutlined />}>Click to Upload Photo</Button>
-          </Upload> */}
+          </Upload>
         </Form>
       </Modal>
       <Pagination

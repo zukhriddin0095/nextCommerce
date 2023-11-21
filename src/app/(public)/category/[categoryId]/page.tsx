@@ -17,36 +17,33 @@ const CategoryPage = ({ params: { categoryId } }: Params) => {
   const [products, setProducts] = useState<ProductType[] | null>(null);
   const [total, setTotal] = useState<number | null>(null);
 
-  useEffect(() => {
-    async function getCategory() {
-      try {
-        const { data } = await request.get<CategoryType>(
-          `category/${categoryId}`
-        );
-        setCategory(data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    async function getcategories() {
-      const {
-        data: { total, products },
-      } = await request.get<{ total: number; products: ProductType[] }>(
-        `product`,
-        { params: { category: categoryId } }
+  async function getCategory() {
+    try {
+      const { data } = await request.get<CategoryType>(
+        `category/${categoryId}`
       );
-      setProducts(products);
-      setTotal(total);
-
+      setCategory(data);
+    } catch (error) {
+      console.log(error);
     }
+  }
+  async function getcategories() {
+    const {
+      data: { total, products },
+    } = await request.get<{ total: number; products: ProductType[] }>(
+      `product`,
+      { params: { category: categoryId } }
+    );
+    setProducts(products);
+    setTotal(total);
+  }
+  useEffect(() => {
     getcategories();
     getCategory();
-  }, [categoryId]);
+  }, []);
 
   if (!category) {
-    return (
-      <Loading /> 
-    );
+    return <Loading />;
   }
 
   return (

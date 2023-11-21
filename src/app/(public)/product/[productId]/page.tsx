@@ -22,7 +22,7 @@ const ProductPage = ({ params: { productId } }: Params) => {
     }
 
     getProduct();
-  }, [productId]);
+  }, []);
 
   if (!product) {
     return <div><Loading /></div>;
